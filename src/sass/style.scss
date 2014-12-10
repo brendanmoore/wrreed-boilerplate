@@ -1,0 +1,38 @@
+@import "compass";
+
+// Lets make things consistent.
+@import "normalize";
+
+
+$chat-color: #87C739;
+$star-color: #FFC500;
+$channel-color: #5677FB;
+$chat-bubble-bg-color: #F1F5F8;
+$body-bg: #E0E0E0;
+$list-seperator-color: #E0E0E0;
+
+@import "mixins";
+@import "components";
+@import "home";
+@import "channels";
+@import "menu";
+@import "chat";
+
+
+// This is a must! Why isn't it standard?
+*, *:before, *:after {
+    @include box-sizing(border-box);
+}
+
+html {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #616161;
+    background-color: $body-bg;
+}

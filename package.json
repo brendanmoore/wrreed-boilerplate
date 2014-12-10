@@ -1,0 +1,29 @@
+{
+  "name": "wrreed-boilerplate",
+  "version": "0.0.0",
+  "description": "A HTML/CSS boilerplate framework for the wrreed project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "compass compile --sass-dir=src/sass --css-dir=dist/css --output-style compressed",
+    "watch": "compass watch --sass-dir=src/sass --css-dir=dist/css --output-style compact",
+    "watch-js": "watchify src/js/index.js -o dist/js/bundle.js",
+    "build-js": "cp -r src/js dist/js"
+  },
+  "keywords": [
+    "css",
+    "mobile",
+    "HTML5",
+    "sass",
+    "compass",
+    "wrreed"
+  ],
+  "author": "Brendan Moore",
+  "license": "MIT",
+  "devDependencies": {
+    "watchify": "~2.1.1"
+  },
+  "dependencies": {
+    "es6-promise": "~2.0.1"
+  }
+}
