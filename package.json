@@ -8,7 +8,7 @@
     "build": "compass compile --sass-dir=src/sass --css-dir=dist/css --output-style compressed",
     "watch": "compass watch --sass-dir=src/sass --css-dir=dist/css --output-style compact",
     "watch-js": "watchify src/js/index.js -o dist/js/bundle.js",
-    "build-js": "cp -r src/js dist/js"
+    "build-js": "browserify src/js/index.js -o dist/js/bundle.js"
   },
   "keywords": [
     "css",
@@ -21,7 +21,8 @@
   "author": "Brendan Moore",
   "license": "MIT",
   "devDependencies": {
-    "watchify": "~2.1.1"
+    "watchify": "~2.1.1",
+    "browserify": "~7.0.0"
   },
   "dependencies": {
     "es6-promise": "~2.0.1"
