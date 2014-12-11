@@ -1,3 +1,10 @@
+$sub-text-color: #AEAEAE;
+
+$panel-header-z: 9;
+$panel-header-text-z: 10;
+$panel-header-menu-z: 9;
+
+
 button {
     outline: none;
 }
@@ -7,11 +14,11 @@ button {
         color: #FFF;
         background-color: $chat-color;
     }
-    .channel & {
+    .channels & {
         color: #FFF;
         background-color: $channel-color;
     }
-    .star & {
+    .starred & {
         color: #FFF;
         background-color: $star-color;
     }
@@ -57,13 +64,14 @@ button {
     background-color: #FFF;
 }
 
+.panel:first-child + .panel + .panel:last-child {
+    left: 200vw;
+}
+
 .panel:first-child + .panel {
     left: 100vw;
 }
 
-.panel + .panel:last-child {
-    left: 200vw;
-}
 
 
 .panel-header {
@@ -71,7 +79,7 @@ button {
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: $panel-header-z;
     min-height: 50px;
 
     h2 {
@@ -81,30 +89,33 @@ button {
         line-height: 18px;
         padding: 16px;
         position: relative;
-        z-index: 10;
         @include panel-colors();
+        z-index: $panel-header-text-z;
     }
 
     .detail & {
         border-bottom: 2px solid $list-seperator-color;
     }
 
-    h3 {
-        // font-size: 20px;
-        color: #616161;
-        margin: 10px 48px 0 48px;
-        text-overflow: ellipsis;
-        font-size: 16px;
-        line-height: 1;
+    .panel-header-text{
+        position: relative;
+        padding: 10px 48px 6px 48px;
+        background-color: #FFF;
+        z-index: $panel-header-text-z;
     }
-    .panel-sub-header {
-        margin: 0;
-        margin-left: 48px;
-        color: #AEAEAE;
-        font-size: 12px;
-        text-overflow: ellipsis;
-    }
-
+        h3 {
+            margin: 0;
+            color: #616161;
+            text-overflow: ellipsis;
+            font-size: 16px;
+            line-height: 1;
+        }
+        .panel-sub-header {
+            margin: 0;
+            color: $sub-text-color;
+            font-size: 12px;
+            text-overflow: ellipsis;
+        }
 }
 
 .panel-body {
@@ -117,12 +128,10 @@ button {
     overflow-y: scroll; /* has to be scroll, not auto */
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+}
 
-    &.bottom {
-        // @include display-flex;
-        // @include align-items(flex-end);
-    }
-
+.panel-body:last-child {
+    padding-bottom: 0;
 }
 
 .panel-footer {
@@ -192,34 +201,7 @@ button {
     }
 }
 
-.panel-menu {
-    @include panel-colors();
-    position: fixed;
-    bottom: 100%;
-    width: 100%;
-    margin-top: -50px;
-    z-index: 9;
-    text-align: left;
-    @include transition(transform ease-out 0.25s);
-}
 
-.menu {
-    margin: 0;
-    padding: 0;
-    .menu-item {
-        list-style: none;
-        color: #FFF;
-        border-bottom: 1px solid #FFF;
-
-        a {
-            display: block;
-            padding: 24px 16px;
-            text-decoration: none;
-            color: inherit;
-        }
-    }
-
-}
 
 @include keyframes(listItemClick){
     0% {

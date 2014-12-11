@@ -1,4 +1,6 @@
 "use strict";
+var Chart = require('./chart');
+
 /* jshint browser: true */
 function swipePanels(){
 
@@ -22,11 +24,13 @@ function swipePanels(){
 
     var home = document.querySelector('.home'),
         detail = document.querySelector('.detail'),
-        panels = document.querySelector('.panels'),
+        panels = document.querySelector('#home-panels'),
         pageIndicator = document.querySelector('.page-indicator'),
         menuTrigger = document.querySelector('.menu-trigger'),
         backTrigger = document.querySelector('.back-trigger'),
-        menus = panels.querySelectorAll('.panel-menu'),
+        subMenuTrigger = document.querySelector('.detail .menu-trigger'),
+        subPanels = document.querySelector('#detail-panels'),
+        menus = document.querySelectorAll('.panel-menu'),
         dots = Array.prototype.slice.call(pageIndicator.children),
         jsPrefixes = ['', 'webkit', 'moz', 'ms'],
         transform = "transform",
@@ -60,19 +64,29 @@ function swipePanels(){
         return {x: touch.pageX, y: touch.pageY };
     };
 
+    /**
+     * Here we manually move the panel via updates from the `touchmove` event
+     * so we have to set `transition: none` in order to prevent the jank!
+     */
     var movePanel = function(){
         if(!isMoving){
+            //setting a helper class and flag in order to prevent
+            //accidental triggering of other navigation elements.
             panels.parentNode.classList.add('moving');
             isMoving = true;
         }
         if(delta){
             var val = (pos * 100 * -1) + (delta.x/(width/3) * 100);
             panels.style[transition] = 'none';
-            console.log(val, transform);
             panels.style[transform] = 'translate3d('+val+ 'vw, 0, 0)';
         }
     };
 
+    /**
+     * Once the manual swiping is over we calculate whether or not the
+     * swipe distance was enough to trigger a panel change. This panel
+     * change is handle by the native CSS transition.
+     */
     var finish = function(){
         panels.style[transition] = null;
         if(delta && Math.abs(delta.x) > 60){
@@ -116,15 +130,22 @@ function swipePanels(){
         };
     };
 
-    var toggleMenu = function(){
+    var toggleMenu = function(idx){
+        idx = idx || pos;
         var val = menuOpen ? 0 : (menus[pos].offsetHeight + 50);
-        menus[pos].style[transform] = 'translate3d(0, ' + val + 'px, 0)';
+        menus[idx].style[transform] = 'translate3d(0, ' + val + 'px, 0)';
         menuOpen = !menuOpen;
-    }
+    };
 
+
+    /**
+     * If we are doing a native scroll (vertically) we want to prevent our swipe
+     * code from being able to run, only after a short delay after the scroll is
+     * finished do we remove the flag.
+     */
     var finishedScrolling = debounce(function(e){
         isScrolling = false;
-        console.log('finishedScrolling');
+        //console.log('finishedScrolling');
     }, 300);
 
     panels.addEventListener('scroll', function(e){
@@ -154,6 +175,8 @@ function swipePanels(){
         if(isSwiping){
             e.preventDefault();
             e.stopPropagation();
+            //Using requestAnimationFrame ensures a smooth swiping action
+            //while the touchmove or `swipe` is being performed.
             window.requestAnimationFrame(function(){
                 movePanel(delta);
             });
@@ -187,6 +210,13 @@ function swipePanels(){
         e.stopPropagation();
     });
 
+    subMenuTrigger.addEventListener('click', function(e){
+        if(!isMoving){
+            toggleMenu(3);
+        }
+        e.stopPropagation();
+    });
+
     var toggleDetail = function(){
         if(isScrolling || isSwiping || isMoving) return;
 
@@ -200,17 +230,39 @@ function swipePanels(){
         detailShowing = !detailShowing;
     };
 
+    var subPanelPos = 0;
+    var toggleSubDetail = function(){
+        console.log(subPanelPos);
+        if(subPanelPos === 0){
+            subPanels.style[transform] = 'translate3d(-100vw,0,0)';
+            subPanelPos = 1;
+        }else{
+            subPanels.style[transform] = 'translate3d(0,0,0)';
+            subPanelPos = 0;
+        }
+    }
+
     document.addEventListener('click', function(e){
         console.log(e);
+        if(e.target.matches('.back-trigger')){
+            if(subPanelPos){
+                return toggleSubDetail();
+            }else{
+                return toggleDetail();
+            }
+        }
+        if(e.target.matches('.channel .menu a')){
+            return toggleSubDetail();
+        }
         if(e.target.tagName === 'A'){
             toggleDetail();
         }
     });
 
-    backTrigger.addEventListener('click', function(e){
-        toggleDetail();
-        e.stopPropagation();
-    });
+    // backTrigger.addEventListener('click', function(e){
+    //     toggleDetail();
+    //     e.stopPropagation();
+    // });
 
     var scrollChannelText = function(){
         var discussion = detail.querySelector('.text-list');
@@ -221,7 +273,7 @@ function swipePanels(){
 
     var addMessage = function(text){
         if(!text) return;
-        console.log(text);
+        //console.log(text);
         var li = document.createElement('li');
         li.innerHTML = '<article class="text-list-bubble right">'+text+'</article>';
         li.className = 'text-list-item right';
@@ -239,6 +291,30 @@ function swipePanels(){
         sendMessage();
     });
 
+var data = {
+    labels: ["", "", "", "", "", "", ""],
+    datasets: [
+        {
+            label: "Views",
+            fillColor: "rgba(233,239,254, 1)",
+            strokeColor: "rgba(103,147,252, 1)",
+            data: [28, 38, 48, 55, 86, 90, 200]
+        }
+    ]
+};
+
+var options = {
+    showScale: false,
+    pointDot: false,
+    scaleShowGridLines: false,
+    datasetStrokeWidth: 5
+};
+
+    var canvas = document.querySelector('.chart canvas');
+    canvas.width = window.innerWidth;
+    var chart = new Chart(canvas.getContext('2d')).Line(data, options);
+
+    console.log(chart);
 
     // function toggleFullScreen() {
     //   var doc = window.document;

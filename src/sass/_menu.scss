@@ -1,0 +1,35 @@
+.panel-menu {
+    color: inherit;
+    background-color: #fff;
+    @include panel-colors();
+    position: absolute;
+    bottom: 100%;
+    width: 100%;
+    margin-top: -50px;
+    z-index: $panel-header-menu-z;
+    text-align: left;
+    @include transition(transform ease-out 0.25s);
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+    .menu-item {
+        list-style: none;
+        border-bottom: 1px solid #FFF;
+
+        a {
+            display: block;
+            padding: 24px 16px;
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+
+}
+
+.detail {
+    .menu-item {
+        border-bottom-color: $list-seperator-color;
+    }
+}

@@ -29,10 +29,9 @@
                     <span class="bar"></span>
                 </button>
             </header>
-            <div class="panels">
-                <section class="panel star">
+            <div id="home-panels" class="panels">
+                <section class="panel starred">
                     <header class="panel-header">
-                        <h2>Starred</h2>
                         <div class="panel-menu">
                             <ul class="menu">
                                 <li class="menu-item"><a href="#">Menu Item 1</a></li>
@@ -40,6 +39,7 @@
                                 <li class="menu-item"><a href="#">Menu Item 3</a></li>
                             </ul>
                         </div>
+                        <h2>Starred</h2>
                     </header>
                     <div class="panel-body">
                     <ul class="list-view">
@@ -72,7 +72,6 @@
                 </section>
                 <section class="panel chat">
                     <header class="panel-header">
-                        <h2>Chat</h2>
                         <div class="panel-menu">
                             <ul class="menu">
                                 <li class="menu-item"><a href="#">Menu Item 1</a></li>
@@ -80,6 +79,7 @@
                                 <li class="menu-item"><a href="#">Menu Item 3</a></li>
                             </ul>
                         </div>
+                        <h2>Chat</h2>
                     </header>
                     <div class="panel-body">
                         <ul class="list-view">
@@ -110,9 +110,8 @@
                     </ul>
                     </div>
                 </section>
-                <section class="panel channel">
+                <section class="panel channels">
                     <header class="panel-header">
-                        <h2>Channel</h2>
                         <div class="panel-menu">
                             <ul class="menu">
                                 <li class="menu-item"><a href="#">Menu Item 1</a></li>
@@ -120,9 +119,10 @@
                                 <li class="menu-item"><a href="#">Menu Item 3</a></li>
                             </ul>
                         </div>
+                        <h2>Channel</h2>
                     </header>
                     <div class="panel-body">
-                        <ul class="list-view">
+                    <ul class="list-view">
                         <li class="list-item"><a href="#">List Item 1</a></li>
                         <li class="list-item"><a href="#">List Item 2</a></li>
                         <li class="list-item"><a href="#">List Item 3</a></li>
@@ -152,57 +152,122 @@
                 </section>
             </div>
         </div>
-        <div class="panels-wrapper detail chat-window">
-            <section class="panel">
-                <div class="panel-header">
-                    <h3>Sub Page</h3>
-                    <span class="panel-sub-header">Sub title</span>
-                    <button class="back-trigger left-arrow">
-                        <span class="head-piece"></span>
-                        <span class="head-piece"></span>
-                    </button>
-                     <button class="menu-trigger bars">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </button>
-                </div>
-                <div class="panel-body bottom">
-                    <ul class="text-list">
-                        <li class="text-list-item">
-                            <span class="user-icon">BM</span>
-                            <article class="text-list-bubble">Reque ea expedita minus perspiciatis enim ullam, veniam tenetur officiis.</article>
-                        </li>
-                        <li class="text-list-item">
-                            <span class="user-icon">BM</span>
-                            <article class="text-list-bubble">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quaerat, deserunt error voluptm tenetur officiis.
-                            </article>
-                        </li>
-                        <li class="text-list-item">
-                            <span class="user-icon">BM</span>
-                            <article class="text-list-bubble">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quaerat, deserunt error voluptates repellat, distinctio possimus maiores esse asperiores quis doloremque ea expedita minus perspiciatis enim ullam, veniam tenetur officiis.</article>
-                        </li>
-                        <li class="text-list-item">
-                            <span class="user-icon">BM</span>
-                            <article class="text-list-bubble">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quaerat, deserunt error voluptates repellat, distinctio possimus maiores esse asperiores quis doloremque ea expedita minus perspiciatis enim ullam, veniam tenetur officiis.</article>
-                        </li>
-                        <li class="text-list-item">
-                            <span class="user-icon">BM</span>
-                            <article class="text-list-bubble">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quaerat, deserunt error voluptat</article>
-                        </li>
-                        <li class="text-list-item">
-                            <span class="user-icon">BM</span>
-                            <article class="text-list-bubble">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quaerat, deserunt error voluptates repellat, distinctio possimus maiores esse asperiores quis doloremque ea expedita minus perspiciatis enim ullam, veniam tenetur officiis.</article>
-                        </li>
-                    </ul>
-                </div>
-                <div class="panel-footer">
-                    <textarea class="panel-footer-input" placeholder="Type a message..."></textarea>
-                    <span class="panel-footer-control">
-                        <button class="send-trigger">SEND</button>
-                    </span>
-                </div>
-            </section>
+        <div class="panels-wrapper detail">
+            <div id="detail-panels" class="panels">
+                <section class="panel channel">
+                    <div class="panel-header">
+                        <div class="panel-menu">
+                            <ul class="menu">
+                                <li class="menu-item"><a href="#">Menu Item 1</a></li>
+                                <li class="menu-item"><a href="#">Menu Item 2</a></li>
+                                <li class="menu-item"><a href="#">Menu Item 3</a></li>
+                            </ul>
+                        </div>
+                        <div class="panel-header-text">
+                            <h3>Sub Page</h3>
+                            <span class="panel-sub-header">Sub title</span>
+                        </div>
+                        <button class="back-trigger left-arrow">
+                            <span class="head-piece"></span>
+                            <span class="head-piece"></span>
+                        </button>
+                         <button class="menu-trigger bars">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </button>
+                    </div>
+                    <div class="panel-body bottom">
+                        <ul class="text-list">
+                            <li class="text-list-item">
+                                <span class="user-icon">BM</span>
+                                <article class="text-list-bubble">Reque ea expedita minus perspiciatis enim ullam, veniam tenetur officiis.</article>
+                            </li>
+                            <li class="text-list-item">
+                                <span class="user-icon">BM</span>
+                                <article class="text-list-bubble">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quaerat, deserunt error voluptm tenetur officiis.
+                                </article>
+                            </li>
+                            <li class="text-list-item">
+                                <span class="user-icon">BM</span>
+                                <article class="text-list-bubble">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quaerat, deserunt error voluptates repellat, distinctio possimus maiores esse asperiores quis doloremque ea expedita minus perspiciatis enim ullam, veniam tenetur officiis.</article>
+                            </li>
+                            <li class="text-list-item">
+                                <span class="user-icon">BM</span>
+                                <article class="text-list-bubble">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quaerat, deserunt error voluptates repellat, distinctio possimus maiores esse asperiores quis doloremque ea expedita minus perspiciatis enim ullam, veniam tenetur officiis.</article>
+                            </li>
+                            <li class="text-list-item">
+                                <span class="user-icon">BM</span>
+                                <article class="text-list-bubble">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quaerat, deserunt error voluptat</article>
+                            </li>
+                            <li class="text-list-item">
+                                <span class="user-icon">BM</span>
+                                <article class="text-list-bubble">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quaerat, deserunt error voluptates repellat, distinctio possimus maiores esse asperiores quis doloremque ea expedita minus perspiciatis enim ullam, veniam tenetur officiis.</article>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <textarea class="panel-footer-input" placeholder="Type a message..."></textarea>
+                        <span class="panel-footer-control">
+                            <button class="send-trigger">SEND</button>
+                        </span>
+                    </div>
+                </section>
+                <section class="panel profile">
+                    <div class="panel-header">
+                        <div class="panel-menu">
+                            <ul class="menu">
+                                <li class="menu-item"><a href="#">Menu Item 1</a></li>
+                                <li class="menu-item"><a href="#">Menu Item 2</a></li>
+                                <li class="menu-item"><a href="#">Menu Item 3</a></li>
+                            </ul>
+                        </div>
+                        <div class="panel-header-text">
+                            <h3>Sub Page</h3>
+                            <span class="panel-sub-header">Sub title</span>
+                        </div>
+                        <button class="back-trigger left-arrow">
+                            <span class="head-piece"></span>
+                            <span class="head-piece"></span>
+                        </button>
+                         <button class="menu-trigger bars">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </button>
+                    </div>
+                    <div class="panel-body bottom">
+                        <article class="about">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non fuga mollitia saepe ipsa cumque, eos animi nemo corporis, consectetur tenetur quos qui possimus odio quis eum aliquam maxime. Accusamus!
+                        </article>
+                        <article class="chart">
+                            <canvas style="width: 100%" />
+                        </article>
+                        <nav class="tabs">
+                            <a class="tab active">
+                                <span class="count">3</span>
+                                <span class="caption">text</span>
+                            </a>
+                            <a class="tab">
+                                <span class="count">3</span>
+                                <span class="caption">text</span>
+                            </a>
+                            <a class="tab">
+                                <span class="count">3</span>
+                                <span class="caption">text</span>
+                            </a>
+                        </nav>
+                        <ul class="list-view">
+                            <li class="list-item"><a href="#">List Item 1</a></li>
+                            <li class="list-item"><a href="#">List Item 2</a></li>
+                            <li class="list-item"><a href="#">List Item 3</a></li>
+                            <li class="list-item"><a href="#">List Item 4</a></li>
+                            <li class="list-item"><a href="#">List Item 5</a></li>
+                            <li class="list-item"><a href="#">List Item 6</a></li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
         </div>
 
 

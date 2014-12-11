@@ -1,0 +1,41 @@
+$tab-indicator-active-color: #D5456B;
+
+.about {
+    padding: 24px 16px;
+    background-color: #F2F5F8;
+}
+
+.tabs {
+    width: 100%;
+    display: table;
+
+    .tab {
+        padding: 16px 0;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+
+        &.active {
+            border-bottom: 1px solid $tab-indicator-active-color;
+        }
+
+        .count {
+            display: block;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .caption {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: $sub-text-color;
+        }
+    }
+
+}
+
+.chart {
+    display: block;
+    canvas {
+        width: 100%;
+    }
+}
