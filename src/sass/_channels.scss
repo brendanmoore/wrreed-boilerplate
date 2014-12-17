@@ -35,6 +35,28 @@ $tab-indicator-active-color: #D5456B;
 
 .chart {
     display: block;
+    position: relative;
+
+    .chart-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 25px;
+        font-size: 12px;
+        line-height: 24px;
+        text-transform: uppercase;
+        color: $sub-text-color;
+    }
+
+    .chart-value {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 25px;
+        font-size: 24px;
+        //font-weight: bold;
+    }
+
     canvas {
         width: 100%;
     }

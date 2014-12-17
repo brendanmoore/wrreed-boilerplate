@@ -309,8 +309,12 @@ button { outline: none; }
 .tabs .tab .caption { font-size: 12px; text-transform: uppercase; color: #AEAEAE; }
 
 /* line 36, ../../src/sass/_channels.scss */
-.chart { display: block; }
-/* line 38, ../../src/sass/_channels.scss */
+.chart { display: block; position: relative; }
+/* line 40, ../../src/sass/_channels.scss */
+.chart .chart-title { position: absolute; top: 0; left: 0; margin: 25px; font-size: 12px; line-height: 24px; text-transform: uppercase; color: #AEAEAE; }
+/* line 51, ../../src/sass/_channels.scss */
+.chart .chart-value { position: absolute; top: 0; right: 0; margin: 25px; font-size: 24px; }
+/* line 60, ../../src/sass/_channels.scss */
 .chart canvas { width: 100%; }
 
 /* line 1, ../../src/sass/_menu.scss */
