@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "compass compile --sass-dir=src/sass --css-dir=dist/css --output-style compressed",
     "watch": "compass watch --sass-dir=src/sass --css-dir=dist/css --output-style compact",
-    "watch-js": "watchify src/js/index.js -o dist/js/bundle.js",
-    "build-js": "browserify src/js/index.js -o dist/js/bundle.js"
+    "watch-js": "watchify src/js/example-index.js -o dist/js/example-bundle.js",
+    "build-js": "browserify src/js/example-index.js -o dist/js/example-bundle.js"
   },
   "keywords": [
     "css",
@@ -22,9 +22,19 @@
   "license": "MIT",
   "devDependencies": {
     "watchify": "~2.1.1",
-    "browserify": "~7.0.0"
+    "browserify": "~7.0.0",
+    "react-tools": "~0.12.2",
+    "gulp": "~3.8.10",
+    "vinyl-source-stream": "~1.0.0",
+    "reactify": "~0.17.1",
+    "gulp-util": "~3.0.1",
+    "gulp-notify": "~2.1.0",
+    "gulp-compass": "~2.0.3",
+    "react-tools": "~0.12.2"
   },
   "dependencies": {
-    "es6-promise": "~2.0.1"
+    "es6-promise": "~2.0.1",
+    "react": "~0.12.2",
+    "lodash": "~2.4.1"
   }
 }

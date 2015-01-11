@@ -143,12 +143,15 @@ button {
 
     border-top: 2px solid $list-seperator-color;
 
-    display: table;
     background-color: #FFF;
 
     .iphone & {
         // bottom: 80px;
     }
+}
+
+.message-input {
+    display: table;
 }
 
 .panel-footer-input {
@@ -186,6 +189,7 @@ button {
         border-bottom: 1px solid $list-seperator-color;
 
         a {
+            position: relative;
             display: block;
             padding: 24px 16px;
             text-decoration: none;
@@ -197,6 +201,19 @@ button {
                 @include animation-iteration-count(1);
             }
         }
+
+    }
+    .list-jewel {
+        background-color: $list-jewel-bg-color;
+        display: inline-block;
+        text-align: center;
+        width: 32px;
+        line-height: 32px;
+        @include border-radius(50%);
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        margin-top: -16px;
 
     }
 }
@@ -234,6 +251,7 @@ button {
         padding: 0;
         list-style: none;
         margin: 4px 0;
+        margin-right: 3px;
         display: inline-block;
         width: 6px;
         height: 6px;
@@ -246,6 +264,9 @@ button {
             @include opacity(1);
         }
 
+    }
+    .dot:last-child {
+        margin-right: 0;
     }
 
 }

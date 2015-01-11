@@ -1,5 +1,9 @@
 "use strict";
-var Chart = require('./chart');
+var Chart = require('./chart'),
+    dispatcher = require('./Dispatcher').getInstance();
+
+
+console.log(dispatcher);
 
 /* jshint browser: true */
 function swipePanels(){

@@ -9,10 +9,10 @@ function xhr(url, method, data){
     return new Promise(function(resolve, reject){
 
         var x = new XMLHttpRequest();
-        x.open(method.toUpperCase(), url, true);
+        x.open((method || 'get').toUpperCase(), url, true);
         x.addEventListener('load', function(e){
             var resp = x.responseText ? JSON.parse(x.responseText) : null;
-            resolve(null);
+            resolve(resp);
         });
         x.onerror = function(){
             reject(x);

@@ -8,6 +8,7 @@ $chat-color: #87C739;
 $star-color: #FFC500;
 $channel-color: #5677FB;
 $chat-bubble-bg-color: #F1F5F8;
+$list-jewel-bg-color: #F2F5F8;
 $body-bg: #E0E0E0;
 $list-seperator-color: #E0E0E0;
 
@@ -23,6 +24,7 @@ $list-seperator-color: #E0E0E0;
 *, *:before, *:after {
     @include box-sizing(border-box);
 }
+
 
 html {
     padding: 0;
