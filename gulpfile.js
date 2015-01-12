@@ -37,7 +37,7 @@ function scripts(watch) {
     var stream = bundler.bundle();
     stream.on('error', handleError('Browserify'));
     stream = stream.pipe(source('bundle.js'));
-    return stream.pipe(gulp.dest('./dist/js')).pipe(notify({
+    return stream.pipe(gulp.dest('./www/js')).pipe(notify({
       title: "WREED Boilerplate",
       message: "Scripts Built"
     }));
@@ -60,7 +60,7 @@ gulp.task('styles', function() {
   gulp.src('./src/sass/*.scss')
     .pipe(compass({
       project: path.join(__dirname),
-      css: './dist/css',
+      css: './www/css',
       sass: './src/sass'
     }))
     .on('error', handleError('Compass'))

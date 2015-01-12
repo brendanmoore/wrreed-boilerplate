@@ -2,13 +2,14 @@
   "name": "wrreed-boilerplate",
   "version": "0.0.0",
   "description": "A HTML/CSS boilerplate framework for the wrreed project",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "compass compile --sass-dir=src/sass --css-dir=dist/css --output-style compressed",
     "watch": "compass watch --sass-dir=src/sass --css-dir=dist/css --output-style compact",
     "watch-js": "watchify src/js/example-index.js -o dist/js/example-bundle.js",
-    "build-js": "browserify src/js/example-index.js -o dist/js/example-bundle.js"
+    "build-js": "browserify src/js/example-index.js -o dist/js/example-bundle.js",
+    "start": "node server.js"
   },
   "keywords": [
     "css",
@@ -29,12 +30,12 @@
     "reactify": "~0.17.1",
     "gulp-util": "~3.0.1",
     "gulp-notify": "~2.1.0",
-    "gulp-compass": "~2.0.3",
-    "react-tools": "~0.12.2"
+    "gulp-compass": "~2.0.3"
   },
   "dependencies": {
     "es6-promise": "~2.0.1",
     "react": "~0.12.2",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "express": "~4.10.7"
   }
 }

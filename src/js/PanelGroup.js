@@ -27,7 +27,7 @@ var PanelGroup = React.createClass({
             panelData = [{
                 title: "Starred",
                 className: 'starred',
-                content: store.get('starred'),
+                content: store.get('starred') || {},
                 menu: {
                     items: [
                         { label: "Find my friends", href: "#"},
@@ -40,7 +40,7 @@ var PanelGroup = React.createClass({
             {
                 title: "Chat",
                 className: "chat",
-                content: store.get('chat'),
+                content: store.get('chat') || {},
                 menu: {
                     items: [
                         { label: "Find my friends", href: "#"},
@@ -52,7 +52,7 @@ var PanelGroup = React.createClass({
             {
                 title: "Channel",
                 className: "channels",
-                content: store.get('channels'),
+                content: store.get('channels') || {},
                 menu: {
                     items: [
                         { label: "Find my friends", href: "#"},

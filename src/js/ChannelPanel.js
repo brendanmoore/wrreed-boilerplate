@@ -19,6 +19,8 @@ var ChannelPanel = React.createClass({
             },
             channelData = store.get('channelData');
 
+        if(!channelData) return <noscript />;
+
         return <section className="panel channel">
               <div className="panel-header">
                 <PanelMenu {...menu} />
@@ -53,6 +55,13 @@ var ChannelPanel = React.createClass({
     },
     onSendMessage: function(message){
         console.log(message);
+        var channelData = store.get('channelData');
+        channelData.items.push({
+            user: 'BM',
+            text: message
+        });
+        store.set('channelData', channelData);
+        sendToServer(message);
     },
     showAbout: function(){
         this.props.showSubDetail();
